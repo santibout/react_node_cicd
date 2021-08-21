@@ -15,7 +15,7 @@ const corsOptions = {
             cb(new Error('Not allowed by cors'));
         }
     }
-}
+};
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, 'client/build')));
@@ -23,10 +23,14 @@ if (process.env.NODE_ENV === "production") {
     app.get('*', (req, res) => {
         res.sendFile(path.join)(__dirname, 'client/build', 'index.html');
     })
-}
+};
+
+app.get('/', (req, res) => {
+    res.send('/nothing to show at the home root.  Use /names instead')
+});
 
 app.get('/names', (req, res) => {
     res.status(200).send('Samuel J. Santibout');
-})
+});
 
-app.listen(3000, () => { console.log('cicd tutorial started') })
+app.listen(3000, () => { console.log('cicd tutorial started') });
