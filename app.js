@@ -7,7 +7,7 @@ const cors = require('cors');
 const whitelist = ['http://localhost:3000', 'https://cicd-tutorial-dude.herokuapp.com/'];
 const corsOptions = {
     origin: (origin, cb) => {
-        console.log('** Origin of request ** ' + request);
+        console.log('** Origin of request ** ' + origin);
         if (whitelist.indexOf(origin) !== -1 || !origin) {
             console.log('Origin Acceptable');
             cb(null, true);
