@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 
 const path = require('path');
+const cors = require('cors');
 
 const whitelist = ['http://localhost:3000', 'https://cicd-tutorial-dude.herokuapp.com/'];
 const corsOptions = {
@@ -16,6 +17,8 @@ const corsOptions = {
         }
     }
 };
+
+app.use(cors(corsOptions));
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, 'client/build')));
