@@ -18,15 +18,15 @@ const corsOptions = {
     }
 };
 
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
-// if (process.env.NODE_ENV === "production") {
-//     app.use(express.static(path.join(__dirname, 'client')));
+if (process.env.NODE_ENV === "production") {
+    // app.use(express.static(path.join(__dirname, 'client')));
 
-//     app.get('*', (req, res) => {
-//         res.sendFile(path.join(__dirname, 'client/public', 'index.html'));
-//     })
-// };
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+    })
+};
 
 app.get('/', (req, res) => {
     res.send('/nothing to show at the home root.  Use /names instead')
