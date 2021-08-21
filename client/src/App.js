@@ -7,7 +7,8 @@ function App() {
   const [username, setUsername] = useState();
 
   useEffect(() => {
-    getNames();
+    // getNames();
+    console.log('react app started');
   }, []);
 
   const getNames = async () => {
@@ -17,7 +18,8 @@ function App() {
 
   return (
     <div className='app'>
-      <h1>username: {username}</h1>
+      {/* <h1>username: {username}</h1> */}
+      <h1>Hi, I'm Sam</h1>
     </div>
   );
 }

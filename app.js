@@ -36,4 +36,4 @@ app.get('/names', (req, res) => {
     res.status(200).send('Samuel J. Santibout');
 });
 
-app.listen(3000, () => { console.log('cicd tutorial started') });
+app.listen(process.env.PORT || 3000, () => { console.log('cicd tutorial started') });
